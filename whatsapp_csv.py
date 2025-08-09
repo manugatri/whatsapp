@@ -1,4 +1,4 @@
-from turtle import pd
+import panas as pd
 import webbrowser
 import time
 import urllib.parse
