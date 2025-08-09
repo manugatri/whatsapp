@@ -1,4 +1,4 @@
-import panas as pd
+import pandas as pd
 import webbrowser
 import time
 import urllib.parse
@@ -6,8 +6,8 @@ import pyautogui
 
 # Importar Lista de nombres y números de un csv
 df = pd.read_csv('/ruta/al/archivo/archivo.csv')
-nombres = df['Nombre'].tolist()
-numeros = df['Telefono'].tolist()
+nombres = df['nombres'].tolist()
+numeros = df['telefonos'].tolist()
 
 
 # Mensaje a enviar
