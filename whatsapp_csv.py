@@ -15,6 +15,9 @@ mensaje = "Hola {nombre}, le recordamos que esta disponible el recibo anual de l
 
 # Iterar sobre cada número
 for i, numero in enumerate(numeros):
+    # Si el numero no empieza por 0 o por + añadir +34
+    if not (numero.startswith("0") or numero.startswith("+")):
+        numero = "+34" + numero
     print(f"📨 Enviando a {numero}...")
 
     # Personalizar el mensaje con el nombre
