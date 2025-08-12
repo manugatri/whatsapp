@@ -6,8 +6,8 @@ import pyautogui
 
 # Importar Lista de nombres y números de un csv
 df = pd.read_csv('/ruta/al/archivo/archivo.csv')
-nombres = df['nombres'].tolist()
-numeros = df['telefonos'].tolist()
+nombres = df['Nombre'].tolist()
+numeros = df['Telefono'].tolist()
 
 
 # Mensaje a enviar
@@ -15,7 +15,9 @@ mensaje = "Hola {nombre}, le recordamos que esta disponible el recibo anual de l
 
 # Iterar sobre cada número
 for i, numero in enumerate(numeros):
-    # Si el numero no empieza por 0 o por + añadir +34
+    # Convertir el número a string si es necesario
+    numero = str(numero)
+    # si el numero no empiza por cero 0 o + agregar +34
     if not (numero.startswith("0") or numero.startswith("+")):
         numero = "+34" + numero
     print(f"📨 Enviando a {numero}...")
