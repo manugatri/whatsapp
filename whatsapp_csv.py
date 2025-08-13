@@ -14,7 +14,7 @@ numeros = df['Telefono'].tolist()
 mensaje = "Hola {nombre}, le recordamos que esta disponible el recibo anual de la Associación de vecinos. Por favor, pase a recogerlo por la oficina."
 
 # Iterar sobre cada número
-for i, numero in enumerate(numeros):
+for numero, nombre in zip(numeros, nombres):
     # Convertir el número a string si es necesario
     numero = str(numero)
     # si el numero no empiza por cero 0 o + agregar +34
@@ -23,7 +23,7 @@ for i, numero in enumerate(numeros):
     print(f"📨 Enviando a {numero}...")
 
     # Personalizar el mensaje con el nombre
-    mensaje_personalizado = mensaje.format(nombre=nombres[i])
+    mensaje_personalizado = mensaje.format(nombre=nombre)
     # Codificar el mensaje para la URL
     mensaje_encoded = urllib.parse.quote(mensaje_personalizado)
     url = f"https://wa.me/{numero}?text={mensaje_encoded}"
@@ -36,7 +36,7 @@ for i, numero in enumerate(numeros):
 
     # Pulsar enter para enviar
     pyautogui.press('enter')
-    print(f"✅ Mensaje enviado a {nombres[i]} {numero}.")
+    print(f"✅ Mensaje enviado a {nombre} {numero}.")
 
     # Esperar antes de pasar al siguiente (cerrar pestaña, o dejarla activa)
     time.sleep(5)
